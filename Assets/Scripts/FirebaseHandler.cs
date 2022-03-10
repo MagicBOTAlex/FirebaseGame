@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Threading.Tasks;
+using Firebase;
+using Firebase.Database;
+using Firebase.Database.Http;
 
-public class FirebaseHandler : MonoBehaviour
+public static class FirebaseHandler 
 {
-    // Start is called before the first frame update
-    void Start()
+    public static void PersonalMain()
     {
-        
+        PersonalMainAsync().GetAwaiter().GetResult();
     }
 
-    // Update is called once per frame
-    void Update()
+    public static async Task PersonalMainAsync()
     {
-        
+        var firebase = new FirebaseClient("https://fir-unity-9-3-2022-default-rtdb.europe-west1.firebasedatabase.app/");
+        var somethings = await firebase.Child("database").PostAsync("{\"testing\":true}");
+        return;
     }
 }
