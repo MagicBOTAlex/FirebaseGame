@@ -7,15 +7,10 @@ using Firebase.Database.Http;
 
 public static class FirebaseHandler 
 {
+    static FirebaseClient firebase = new FirebaseClient("https://fir-unity-9-3-2022-default-rtdb.europe-west1.firebasedatabase.app/");
+
     public static void PersonalMain()
     {
-        PersonalMainAsync().GetAwaiter().GetResult();
-    }
-
-    public static async Task PersonalMainAsync()
-    {
-        var firebase = new FirebaseClient("https://fir-unity-9-3-2022-default-rtdb.europe-west1.firebasedatabase.app/");
-        var somethings = await firebase.Child("database").PostAsync("{\"testing\":true}");
-        return;
+        firebase.Child("database").PatchAsync("{\"testing\":true}").Wait();
     }
 }
