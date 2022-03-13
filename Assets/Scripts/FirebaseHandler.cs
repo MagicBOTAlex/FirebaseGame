@@ -15,16 +15,7 @@ public static class FirebaseHandler
 
     public static void PersonalMain()
     {
-        var jObject = new DatabaseStructure();
-        var random = new Random();
-        var randomArr = new int[10];
-        for (int i = 0; i < randomArr.Length; i++)
-        {
-            randomArr[i] = random.Next(1000);
-        }
-        jObject.Scores = randomArr;
 
-        firebase.Child("database").PatchAsync(JsonConvert.SerializeObject(jObject)).Wait();
     }
 
     public static DatabaseStructure GetData()
@@ -32,7 +23,7 @@ public static class FirebaseHandler
         var client = new HttpClient();
         var response = client.GetAsync("https://fir-unity-9-3-2022-default-rtdb.europe-west1.firebasedatabase.app/database.json");
 
-        return JsonConvert.DeserializeObject<DatabaseStructure>(response.ToString());
+        return JsonConvert.DeserializeObject<DatabaseStructure>(response.Result.Content.ReadAsStringAsync().GetAwaiter().GetResult());
     }
 
     public static void AddScore(int score)
