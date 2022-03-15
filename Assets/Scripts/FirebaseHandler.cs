@@ -1,21 +1,31 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
-using Firebase;
-using Firebase.Database;
-using Firebase.Database.Http;
 using Newtonsoft.Json;
 
 public static class FirebaseHandler 
 {
-    static FirebaseClient firebase = new FirebaseClient("https://fir-unity-9-3-2022-default-rtdb.europe-west1.firebasedatabase.app/");
+    //static FirebaseClient firebase = new FirebaseClient("https://fir-unity-9-3-2022-default-rtdb.europe-west1.firebasedatabase.app/");
 
     public static void PersonalMain()
     {
+        var random = new Random();
+        var randomList = new List<int>();
+        for (int i = 0; i < 10; i++)
+        {
+            randomList.Add(random.Next(i * 100));
+        }
+        var objectToSend = new DatabaseStructure() { Scores = randomList.ToArray() };
+        string json = JsonConvert.SerializeObject(objectToSend);
 
+        SendData(json);
     }
 
     public static DatabaseStructure GetData()
@@ -33,7 +43,50 @@ public static class FirebaseHandler
         dumbList.Add(score);
         data.Scores = dumbList.ToArray();
 
-        firebase.Child("database").PatchAsync(JsonConvert.SerializeObject(data)).Wait();
+        //firebase.Child("database").PatchAsync(JsonConvert.SerializeObject(data)).Wait();
+    }
+
+    public static void SendData(string json)
+    {
+        var httpWebRequest = (HttpWebRequest)WebRequest.Create(@"https://fir-unity-9-3-2022-default-rtdb.europe-west1.firebasedatabase.app/database.json");
+        httpWebRequest.ContentType = "application/json";
+        httpWebRequest.Method = "PATCH";
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+
+        using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+        {
+            streamWriter.Write(json);
+            streamWriter.Flush();
+            streamWriter.Close();
+        }
+
+        var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+
+        //request.Headers.Add("Content-Type", "application/json");
+        //request.Headers.Add("User-Agent", "Unity/2022.1.0b11.2843 or something. idk");
+        //request.Headers.Add("Accept-Encoding", "gzip, deflate, br");
+        //request.Headers.Add("Connection", "keep-alive");
+
+        var response = httpResponse.StatusCode;
+
+        switch ((int)response)
+        {
+            case 200:
+                UnityEngine.Debug.Log("Data successfully sent!");
+                break;
+
+            case 404:
+                UnityEngine.Debug.Log("Code still fucked or you got no internet. Idk");
+                break;
+
+            case 400:
+                UnityEngine.Debug.Log("Permission denied. You hacker?");
+                break;
+
+            default:
+                UnityEngine.Debug.Log($"Zhentao's code is clapped and needs to be fixed. Error code: {(int)response}");
+                break;
+        }
     }
 }
 
