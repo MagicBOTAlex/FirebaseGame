@@ -16,16 +16,16 @@ public static class FirebaseHandler
 
     public static void PersonalMain()
     {
-        var random = new Random();
-        var randomList = new List<int>();
-        for (int i = 0; i < 10; i++)
-        {
-            randomList.Add(random.Next(i * 100));
-        }
-        var objectToSend = new DatabaseStructure() { Scores = randomList.ToArray() };
-        string json = JsonConvert.SerializeObject(objectToSend);
+        //var random = new Random();
+        //var randomList = new List<int>();
+        //for (int i = 0; i < 10; i++)
+        //{
+        //    randomList.Add(random.Next(i * 100));
+        //}
+        //var objectToSend = new DatabaseStructure() { Scores = randomList.ToArray() };
+        //string json = JsonConvert.SerializeObject(objectToSend);
 
-        SendData(json);
+        //SendData(json);
     }
 
     public static DatabaseStructure GetData()
@@ -42,6 +42,9 @@ public static class FirebaseHandler
         var dumbList = data.Scores.ToList();
         dumbList.Add(score);
         data.Scores = dumbList.ToArray();
+
+        string json = JsonConvert.SerializeObject(data);
+        SendData(json);
 
         //firebase.Child("database").PatchAsync(JsonConvert.SerializeObject(data)).Wait();
     }
