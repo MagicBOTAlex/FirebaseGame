@@ -5,6 +5,7 @@ using UnityEngine;
 public class MovementScript : MonoBehaviour
 {
     Rigidbody rb;
+    public float MovementSpeed = 100;
 
     private void Start()
     {
@@ -13,6 +14,6 @@ public class MovementScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0) * 10000;
+        rb.velocity = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0) * MovementSpeed;
     }
 }
