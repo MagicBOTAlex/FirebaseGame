@@ -14,6 +14,6 @@ public class MovementScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0) * MovementSpeed;
+        rb.velocity = new Vector3(Input.GetAxisRaw("Horizontal"), rb.velocity.y, 0) * MovementSpeed;
     }
 }
