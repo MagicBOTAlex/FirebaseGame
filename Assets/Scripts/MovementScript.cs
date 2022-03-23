@@ -5,15 +5,15 @@ using UnityEngine;
 public class MovementScript : MonoBehaviour
 {
     Rigidbody rb;
-    public float MovementSpeed = 100;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        rb.velocity = new Vector3(Input.GetAxisRaw("Horizontal"), rb.velocity.y, 0) * MovementSpeed;
+        rb.AddForce(new Vector3(Input.GetAxisRaw("Horizontal") * GameManager.Instance.PlayerModeSpeed * Time.deltaTime, 0, 0));
+        rb.AddForce(new Vector3(0, 0, GameManager.Instance.CurrentSpeed * Time.deltaTime));
     }
 }

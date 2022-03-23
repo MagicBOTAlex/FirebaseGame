@@ -8,4 +8,5 @@ public class DatabaseLauncher : MonoBehaviour
     {
         FirebaseHandler.PersonalMain();
     }
+
 }
