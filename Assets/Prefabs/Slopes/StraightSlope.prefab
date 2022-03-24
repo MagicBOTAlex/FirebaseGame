@@ -194,6 +194,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5908560847311583499, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75372
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908560847311583499, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.12406
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908560847311583499, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.4618
+      objectReference: {fileID: 0}
     - target: {fileID: 7144276208723894926, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
       propertyPath: m_Name
       value: SpawnNewPlatformCommander
