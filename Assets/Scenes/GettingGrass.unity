@@ -668,6 +668,7 @@ MonoBehaviour:
   PlayerModeSpeed: 2000
   MaxForwardSpeed: 20
   MaxSideSpeed: 20
+  PreSpawnedPlatforms: 3
   CurrentSpeed: 500
   SpawnedPlatforms:
   - {fileID: 1672220296}
@@ -994,6 +995,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1672220297}
+  - component: {fileID: 1672220298}
   m_Layer: 0
   m_Name: StartingArea
   m_TagString: Untagged
@@ -1015,6 +1017,51 @@ Transform:
   m_Children:
   - {fileID: 1281248414}
   - {fileID: 211730262}
+  - {fileID: 2066436720}
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1672220298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672220296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b420fdbecd7110849859f40cd6cdf05f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnNextHere: {fileID: 2066436719}
+--- !u!1 &2066436719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2066436720}
+  m_Layer: 0
+  m_Name: SpawnNextHere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2066436720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066436719}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -16.41, z: 24.91}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1672220297}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
