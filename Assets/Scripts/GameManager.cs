@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Settings")]
     public float PlayerModeSpeed = 50;
+    public float MaxForwardSpeed = 20;
+    public float MaxSideSpeed = 20;
 
     [Header("Game values")]
     public float CurrentSpeed = 50;
