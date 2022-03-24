@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public float CurrentSpeed = 50;
     public List<GameObject> SpawnedPlatforms;
 
+    private GameObject spawnedHolder;
+
     private void Start()
     {
         if (Instance == null)
@@ -30,14 +32,53 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
 
+        spawnedHolder = new GameObject("SpawnedHolder");
+
         for (int i = 0; i < PreSpawnedPlatforms; i++)
         {
             SpawnNewPlatform();
         }
+
+        //Debug.Log(new Marc());
+        //Debug.Log(new Marc(true));
+        //Debug.Log(new Marc(true, 40));
     }
 
     public void SpawnNewPlatform()
     {
-        SpawnedPlatforms.Add(Instantiate(Slopes[Random.Range(0, Slopes.Length)], SpawnedPlatforms[SpawnedPlatforms.Count - 1].GetComponent<SlopeScript>().SpawnNextHere.transform.position, Quaternion.identity));
+        SpawnedPlatforms.Add(Instantiate(Slopes[Random.Range(0, Slopes.Length)], SpawnedPlatforms[SpawnedPlatforms.Count - 1].GetComponent<SlopeScript>().SpawnNextHere.transform.position, Quaternion.identity, spawnedHolder.transform));
     }
+}
+
+public class Marc : Child
+{
+    public int Age { get; set; }
+    public bool IsFurry { get; set; }
+
+    public Marc()
+    {
+        IsAutistic = true;
+        IsFurry = true;
+        Age = 27;
+    }
+
+    public Marc(bool IsMark, int age = 3)
+    {
+        IsAutistic = IsMark;
+        IsFurry = IsMark;
+
+        if (IsMark)
+        {
+            Age = 29;
+        }
+        else
+        {
+            Age = age;
+        }
+    }
+}
+
+public class Child
+{
+    public bool IsAutistic { get; set; }
 }

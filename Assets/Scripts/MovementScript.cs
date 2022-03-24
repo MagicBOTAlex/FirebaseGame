@@ -15,6 +15,7 @@ public class MovementScript : MonoBehaviour
     {
         rb.AddForce(new Vector3(Input.GetAxisRaw("Horizontal") * GameManager.Instance.PlayerModeSpeed * Time.deltaTime, 0, 0));
         rb.AddForce(new Vector3(0, 0, GameManager.Instance.CurrentSpeed * Time.deltaTime));
+        rb.AddForce(new Vector3(0, -GameManager.Instance.CurrentSpeed * Time.deltaTime, 0));
 
         if (rb.velocity.z > GameManager.Instance.MaxForwardSpeed)
         {
