@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Game values")]
     public float CurrentSpeed = 50;
+    public List<GameObject> SpawnedPlatforms;
 
     private void Start()
     {
@@ -27,5 +28,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
+    }
+
+    public void SpawnNewPlatform()
+    {
+        SpawnedPlatforms.Add(Instantiate(Slopes[Random.Range(0, Slopes.Length)], Player.transform.GetChild(0).position, Quaternion.identity));
     }
 }

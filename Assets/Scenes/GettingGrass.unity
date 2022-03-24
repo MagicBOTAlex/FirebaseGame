@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 60072691}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -254,6 +254,82 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 663691ac38b77494995bf39709eecbf5, type: 3}
   m_PrefabInstance: {fileID: 773973251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &238398436
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 1281248414}
+    m_Modifications:
+    - target: {fileID: 1733827225023332488, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733827225023332488, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.4072247
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733827225023332488, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5.37924
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733827225023332488, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.037793998
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733827225023332488, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733827225023332488, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733827225023332488, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.486
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733827225023332488, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.97629607
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733827225023332488, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.2164396
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733827225023332488, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733827225023332488, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733827225023332488, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733827225023332488, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733827225023332488, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144276208723894926, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+      propertyPath: m_Name
+      value: SpawnNewPlatformCommander
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+--- !u!4 &238398437 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1733827225023332488, guid: ba1f411513dca64409a7ebd441bbf21d, type: 3}
+  m_PrefabInstance: {fileID: 238398436}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &372326744
 GameObject:
@@ -587,11 +663,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 442345446}
-  Slopes: []
+  Slopes:
+  - {fileID: 6568449251859720624, guid: 72bf07fd2715b4a47a971da24e60d22b, type: 3}
   PlayerModeSpeed: 2000
   MaxForwardSpeed: 20
   MaxSideSpeed: 20
   CurrentSpeed: 500
+  SpawnedPlatforms:
+  - {fileID: 1672220296}
 --- !u!4 &909704210
 Transform:
   m_ObjectHideFlags: 0
@@ -745,6 +824,7 @@ Transform:
   m_Children:
   - {fileID: 372326745}
   - {fileID: 677971043}
+  - {fileID: 238398437}
   m_Father: {fileID: 1672220297}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 25, y: 0, z: 0}
