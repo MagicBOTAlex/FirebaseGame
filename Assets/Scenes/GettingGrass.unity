@@ -666,6 +666,7 @@ MonoBehaviour:
   Slopes:
   - {fileID: 6568449251859720624, guid: 72bf07fd2715b4a47a971da24e60d22b, type: 3}
   - {fileID: 8717374355641023071, guid: 5a8641e4744da2e418de6f94f9737d58, type: 3}
+  - {fileID: 2602061469795296387, guid: 39c34c4e8e57d6446973711efbaff031, type: 3}
   PlayerModeSpeed: 2000
   MaxForwardSpeed: 20
   MaxSideSpeed: 20
