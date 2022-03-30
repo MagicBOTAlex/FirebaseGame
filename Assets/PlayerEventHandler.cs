@@ -6,7 +6,8 @@ public class PlayerEventHandler : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        if (!collision.collider.CompareTag("DeathBox")) return;
+        if (collision is null) return;
+        if (!collision.gameObject.CompareTag("DeathBox")) return;
 
         StartCoroutine(GameManager.Instance.StartPlayerDeathSequence());
     }

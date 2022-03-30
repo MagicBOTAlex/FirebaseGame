@@ -6,9 +6,8 @@ public class SpawnNewCommander : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            GameManager.Instance.SpawnNewPlatform();
-        }
+        if (!other.CompareTag("Player")) return;
+
+        GameManager.Instance.SpawnNewPlatform();
     }
 }
