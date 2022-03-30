@@ -48,6 +48,14 @@ public class GameManager : MonoBehaviour
     {
         SpawnedPlatforms.Add(Instantiate(Slopes[Random.Range(0, Slopes.Length)], SpawnedPlatforms[SpawnedPlatforms.Count - 1].GetComponent<SlopeScript>().SpawnNextHere.transform.position, Quaternion.identity, spawnedHolder.transform));
     }
+
+    public IEnumerator StartPlayerDeathSequence()
+    {
+        Player.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
+        //Player.transform.GetChild(0).GetComponent<Rigidbody>().
+
+        yield return null;
+    }
 }
 
 public class Marc : Child
