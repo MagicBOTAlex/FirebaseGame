@@ -337,47 +337,51 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 910972011}
+    m_TransformParent: {fileID: 442345447}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: fe77fa524919efa48b5a0f9ec705617c, type: 3}
       propertyPath: m_RootOrder
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe77fa524919efa48b5a0f9ec705617c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 57.285336
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fe77fa524919efa48b5a0f9ec705617c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 107.95258
+      value: 329.3202
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe77fa524919efa48b5a0f9ec705617c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 15.96191
+      value: 48.693413
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe77fa524919efa48b5a0f9ec705617c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.2168725
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe77fa524919efa48b5a0f9ec705617c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.3012295
+      value: -28.068905
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe77fa524919efa48b5a0f9ec705617c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 32.364555
+      value: 49.338158
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe77fa524919efa48b5a0f9ec705617c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.57403743
+      value: 0.73559463
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe77fa524919efa48b5a0f9ec705617c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.8092983
+      value: -0.6658702
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe77fa524919efa48b5a0f9ec705617c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.07798347
+      value: 0.09715979
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe77fa524919efa48b5a0f9ec705617c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.097139485
+      value: -0.07795818
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe77fa524919efa48b5a0f9ec705617c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -525,6 +529,7 @@ Transform:
   m_Children:
   - {fileID: 60072686}
   - {fileID: 910972011}
+  - {fileID: 858521561}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -791,8 +796,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 4, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 858521561}
+  m_Children: []
   m_Father: {fileID: 442345447}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 25, y: 0, z: 0}
@@ -967,6 +971,31 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1281248413}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1302461216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fe77fa524919efa48b5a0f9ec705617c, type: 3}
+  m_PrefabInstance: {fileID: 273578258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1818360608 &1302461219
+PositionConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302461216}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_TranslationAtRest: {x: -7.5, y: -28.068905, z: 49.338158}
+  m_TranslationOffset: {x: -7.5, y: -28.068905, z: 49.338158}
+  m_AffectTranslationX: 0
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_Active: 1
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 60072686}
+    weight: 1
 --- !u!1 &1347008005
 GameObject:
   m_ObjectHideFlags: 0
