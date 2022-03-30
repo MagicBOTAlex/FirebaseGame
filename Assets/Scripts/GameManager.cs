@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator StartPlayerDeathSequence()
     {
         Player.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
-        Player.transform.GetChild(0).GetComponent<Rigidbody>().detectCollisions = false;
+        Player.transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = true;
 
         yield return null;
     }
