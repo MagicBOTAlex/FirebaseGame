@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [Header("Refrences")]
     public GameObject Player;
     public GameObject[] Slopes;
+    public GameObject LoseScreen;
+    public GameObject ScoreShower;
 
     [Header("Settings")]
     public float PlayerModeSpeed = 50;
@@ -18,6 +22,8 @@ public class GameManager : MonoBehaviour
     [Header("Game values")]
     public float CurrentSpeed = 50;
     public List<GameObject> SpawnedPlatforms;
+    public float Score = 0;
+    public bool IsDead = false;
 
     private GameObject spawnedHolder;
 
@@ -39,14 +45,41 @@ public class GameManager : MonoBehaviour
             SpawnNewPlatform();
         }
 
+        PlayerRB = Player.transform.GetChild(0).GetComponent<Rigidbody>();
+
         //Debug.Log(new Marc());
         //Debug.Log(new Marc(true));
         //Debug.Log(new Marc(true, 40));
     }
 
+    bool hasChanged = false;
+    Rigidbody PlayerRB;
+    private void Update()
+    {
+        if (!IsDead)
+        {
+            Score += ((Mathf.Abs(PlayerRB.velocity.z) + Mathf.Abs(PlayerRB.velocity.y)) * 0.5f) * Time.deltaTime;
+            ScoreShower.GetComponent<Text>().text = System.Math.Round(Score).ToString();
+        }
+        else
+        {
+            if (!hasChanged)
+            {
+                LoseScreen.SetActive(true);
+                ScoreShower.SetActive(false);
+                hasChanged = true;
+            }
+        }
+    }
+
     public void SpawnNewPlatform()
     {
-        SpawnedPlatforms.Add(Instantiate(Slopes[Random.Range(0, Slopes.Length)], SpawnedPlatforms[SpawnedPlatforms.Count - 1].GetComponent<SlopeScript>().SpawnNextHere.transform.position, Quaternion.identity, spawnedHolder.transform));
+        var objectToSpawn = Slopes[Random.Range(0, Slopes.Length)];
+        var spawnPos = SpawnedPlatforms[SpawnedPlatforms.Count - 1].GetComponent<SlopeScript>().SpawnNextHere.transform.position;
+
+        var spawnedPlatform = Instantiate(objectToSpawn, spawnPos, Quaternion.identity, spawnedHolder.transform) as GameObject;
+
+        SpawnedPlatforms.Add(spawnedPlatform);
     }
 
     public IEnumerator StartPlayerDeathSequence()
@@ -54,7 +87,9 @@ public class GameManager : MonoBehaviour
         Player.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
         Player.transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = true;
 
-        yield return null;
+        yield return new WaitForSecondsRealtime(1.5f);
+
+        IsDead = true;
     }
 }
 
