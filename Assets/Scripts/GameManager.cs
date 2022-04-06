@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
 
         PlayerRB = Player.transform.GetChild(0).GetComponent<Rigidbody>();
 
+        LoseScreen.SetActive(false);
+
         //Debug.Log(new Marc());
         //Debug.Log(new Marc(true));
         //Debug.Log(new Marc(true, 40));
