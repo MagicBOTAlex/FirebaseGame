@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public float MaxForwardSpeed = 20;
     public float MaxSideSpeed = 20;
     public int PreSpawnedPlatforms = 3;
+    public float GameSpeedModifier = 1;
 
     [Header("Game values")]
     public float CurrentSpeed = 50;
@@ -60,6 +61,13 @@ public class GameManager : MonoBehaviour
         {
             Score += ((Mathf.Abs(PlayerRB.velocity.z) + Mathf.Abs(PlayerRB.velocity.y)) * 0.5f) * Time.deltaTime;
             ScoreShower.GetComponent<Text>().text = System.Math.Round(Score).ToString();
+
+            CurrentSpeed += Time.deltaTime * 0.01f;
+
+            MaxForwardSpeed = CurrentSpeed / 25;
+            MaxSideSpeed = CurrentSpeed / 25;
+
+            PlayerModeSpeed = CurrentSpeed / 0.25f;
         }
         else
         {
