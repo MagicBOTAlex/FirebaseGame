@@ -17,12 +17,12 @@ public static class FirebaseHandler
     public static void PersonalMain()
     {
         //var random = new Random();
-        //var randomList = new List<int>();
-        //for (int i = 0; i < 10; i++)
+        //var listToSend = new List<PlayerScore>();
+        //for (int i = 0; i < 20; i++)
         //{
-        //    randomList.Add(random.Next(i * 100));
+        //    listToSend.Add(new PlayerScore() { Score = random.Next(1000), Name = $"Player {random.Next(1000).ToString("0000")}" });
         //}
-        //var objectToSend = new DatabaseStructure() { Scores = randomList.ToArray() };
+        //var objectToSend = new DatabaseStructure() { Scores = listToSend.ToArray() };
         //string json = JsonConvert.SerializeObject(objectToSend);
 
         //SendData(json);
@@ -36,11 +36,11 @@ public static class FirebaseHandler
         return JsonConvert.DeserializeObject<DatabaseStructure>(response.Result.Content.ReadAsStringAsync().GetAwaiter().GetResult());
     }
 
-    public static void AddScore(int score)
+    public static void AddScore(string name,int score)
     {
         var data = GetData();
         var dumbList = data.Scores.ToList();
-        dumbList.Add(score);
+        dumbList.Add(new PlayerScore() { Name = name, Score = score, TimeSubmitted = DateTime.Now.Ticks});
         data.Scores = dumbList.ToArray();
 
         string json = JsonConvert.SerializeObject(data);
@@ -95,5 +95,12 @@ public static class FirebaseHandler
 
 public class DatabaseStructure
 {
-    public int[] Scores { get; set; }
+    public PlayerScore[] Scores { get; set; }
+}
+
+public class PlayerScore
+{
+    public string Name { get; set; }
+    public int Score { get; set; }
+    public long TimeSubmitted { get; set; }
 }

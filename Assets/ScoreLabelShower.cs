@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
+using UnityEngine.UI;
+using System.Linq;
+using System;
 
 public class ScoreLabelShower : MonoBehaviour
 {
@@ -9,14 +13,33 @@ public class ScoreLabelShower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int amount = 10;
         tf = GetComponent<RectTransform>();
 
-        for (int i = 0; i < amount; i++)
+        DatabaseStructure data = FirebaseHandler.GetData();
+        if (data is null) return;
+        data.Scores = data.Scores.OrderBy(x => x.Score).ToArray();
+
+        float currentPos = 0;
+        for (int i = 0; i < data.Scores.Length; i++)
         {
-            Instantiate(Label, new Vector3(0, -80 * (i+1), 0) + transform.position, Quaternion.identity, transform);
-            tf.sizeDelta += new Vector2(0, 80);
+            GameObject scoreLabel;
+            if (i == 0)
+            {
+                currentPos = 100;
+                tf.sizeDelta += new Vector2(0, 60);
+                scoreLabel = Instantiate(Label, new Vector3(0, -currentPos, 0) + transform.position, Quaternion.identity, transform);
+            }
+            else
+            {
+                currentPos += 65;
+                tf.sizeDelta += new Vector2(0, 70);
+                scoreLabel = Instantiate(Label, new Vector3(0, -currentPos, 0) + transform.position, Quaternion.identity, transform);
+            }
+
+            var labelObjects = scoreLabel.GetComponent<ScoreLabelScript>();
+            labelObjects.Label.GetComponent<Text>().text = data.Scores[i].Name;
+            labelObjects.LabelScore.GetComponent<Text>().text = data.Scores[i].Score.ToString();
         }
-        tf.sizeDelta -= new Vector2(0, 80);
+        //tf.sizeDelta -= new Vector2(0, 80);
     }
 }
