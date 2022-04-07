@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SpawnNewPlatform()
+    public void SpawnNewPlatform(bool isStartingGame = false)
     {
         var objectToSpawn = Slopes[Random.Range(0, Slopes.Length)];
         var spawnPos = SpawnedPlatforms[SpawnedPlatforms.Count - 1].GetComponent<SlopeScript>().SpawnNextHere.transform.position;
@@ -90,6 +90,11 @@ public class GameManager : MonoBehaviour
         var spawnedPlatform = Instantiate(objectToSpawn, spawnPos, Quaternion.identity, spawnedHolder.transform) as GameObject;
 
         SpawnedPlatforms.Add(spawnedPlatform);
+
+        if (!isStartingGame) return;
+
+        Destroy(SpawnedPlatforms[0]);
+        SpawnedPlatforms.RemoveAt(0);
     }
 
     public IEnumerator StartPlayerDeathSequence()
