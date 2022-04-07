@@ -17,7 +17,7 @@ public class ScoreLabelShower : MonoBehaviour
 
         DatabaseStructure data = FirebaseHandler.GetData();
         if (data is null) return;
-        data.Scores = data.Scores.OrderBy(x => x.Score).ToArray();
+        data.Scores = data.Scores.OrderByDescending(x => x.Score).ToArray();
 
         float currentPos = 0;
         for (int i = 0; i < data.Scores.Length; i++)
