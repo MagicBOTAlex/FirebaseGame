@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
             Score += ((Mathf.Abs(PlayerRB.velocity.z) + Mathf.Abs(PlayerRB.velocity.y)) * 0.5f) * Time.deltaTime;
             ScoreShower.GetComponent<Text>().text = System.Math.Round(Score).ToString();
 
-            CurrentSpeed += Time.deltaTime * 0.01f;
+            CurrentSpeed += Time.deltaTime * GameSpeedModifier;
 
             MaxForwardSpeed = CurrentSpeed / 25;
             MaxSideSpeed = CurrentSpeed / 25;

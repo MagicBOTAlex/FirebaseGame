@@ -36,11 +36,11 @@ public static class FirebaseHandler
         return JsonConvert.DeserializeObject<DatabaseStructure>(response.Result.Content.ReadAsStringAsync().GetAwaiter().GetResult());
     }
 
-    public static void AddScore(string name,int score)
+    public static void AddScore(string name, float score)
     {
         var data = GetData();
         var dumbList = data.Scores.ToList();
-        dumbList.Add(new PlayerScore() { Name = name, Score = score, TimeSubmitted = DateTime.Now.Ticks});
+        dumbList.Add(new PlayerScore() { Name = name, Score = score, TimeSubmitted = DateTimeOffset.Now.ToUnixTimeSeconds()});
         data.Scores = dumbList.ToArray();
 
         string json = JsonConvert.SerializeObject(data);
@@ -101,6 +101,6 @@ public class DatabaseStructure
 public class PlayerScore
 {
     public string Name { get; set; }
-    public int Score { get; set; }
+    public float Score { get; set; }
     public long TimeSubmitted { get; set; }
 }
