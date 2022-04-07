@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/GettingGrass.unity
+    guid: 5a25f2ae3d1d59b43a9039d764cefa9b
   m_configObjects: {}

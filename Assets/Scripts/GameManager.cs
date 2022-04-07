@@ -80,6 +80,11 @@ public class GameManager : MonoBehaviour
                 hasChanged = true;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        }
     }
 
     public void SpawnNewPlatform(bool isStartingGame = false)
