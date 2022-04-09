@@ -33,7 +33,10 @@ public static class FirebaseHandler
         var client = new HttpClient();
         var response = client.GetAsync("https://fir-unity-9-3-2022-default-rtdb.europe-west1.firebasedatabase.app/database.json");
 
-        return JsonConvert.DeserializeObject<DatabaseStructure>(response.Result.Content.ReadAsStringAsync().GetAwaiter().GetResult());
+        string responseStr = response.Result.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+        UnityEngine.Debug.Log(responseStr);
+
+        return JsonConvert.DeserializeObject<DatabaseStructure>(responseStr);
     }
 
     public static void AddScore(string name, float score)
