@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < PreSpawnedPlatforms; i++)
         {
-            SpawnNewPlatform();
+            SpawnNewPlatform(true);
         }
 
         PlayerRB = Player.transform.GetChild(0).GetComponent<Rigidbody>();
@@ -96,9 +96,9 @@ public class GameManager : MonoBehaviour
 
         SpawnedPlatforms.Add(spawnedPlatform);
 
-        if (!isStartingGame) return;
+        if (isStartingGame) return;
 
-        Destroy(SpawnedPlatforms[0]);
+        Destroy((GameObject)SpawnedPlatforms[0]);
         SpawnedPlatforms.RemoveAt(0);
     }
 
