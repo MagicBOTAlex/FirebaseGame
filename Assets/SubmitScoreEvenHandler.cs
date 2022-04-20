@@ -15,6 +15,7 @@ public class SubmitScoreEvenHandler : MonoBehaviour
         buttonText.text = "Submitted!";
         SubmitButton.GetComponent<Button>().interactable = false;
 
+        //print(NameInput.GetComponent<InputField>().text);
         var playerName = NameInput.GetComponent<InputField>().text;
         NameInput.GetComponent<InputField>().interactable = false;
         var score = GameManager.Instance.Score;

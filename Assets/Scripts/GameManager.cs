@@ -81,10 +81,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
-        }
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        //}
     }
 
     public void SpawnNewPlatform(bool isStartingGame = false)
