@@ -3178,7 +3178,6 @@ GameObject:
   - component: {fileID: 910972013}
   - component: {fileID: 910972012}
   - component: {fileID: 910972015}
-  - component: {fileID: 910972016}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -3269,26 +3268,6 @@ LookAtConstraint:
   m_UseUpObject: 0
   m_Active: 1
   m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 60072686}
-    weight: 1
---- !u!1818360608 &910972016
-PositionConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910972010}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Weight: 0.75
-  m_TranslationAtRest: {x: 0, y: 6.68, z: -7.28}
-  m_TranslationOffset: {x: 0, y: 6.68, z: -7.28}
-  m_AffectTranslationX: 1
-  m_AffectTranslationY: 0
-  m_AffectTranslationZ: 0
-  m_Active: 1
-  m_IsLocked: 0
   m_Sources:
   - sourceTransform: {fileID: 60072686}
     weight: 1
@@ -5373,7 +5352,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1886543828}
   - component: {fileID: 1886543829}
-  - component: {fileID: 1886543830}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -5404,32 +5382,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1886543827}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c96d5f7d9e7542d488d7324a140ecca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 60072685}
---- !u!1818360608 &1886543830
-PositionConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886543827}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Weight: 1
-  m_TranslationAtRest: {x: 0, y: 0, z: 0}
-  m_TranslationOffset: {x: 0, y: 0, z: 0}
-  m_AffectTranslationX: 0
-  m_AffectTranslationY: 1
-  m_AffectTranslationZ: 1
-  m_Active: 1
-  m_IsLocked: 0
-  m_Sources:
-  - sourceTransform: {fileID: 60072686}
-    weight: 1
+  Weight: 0.75
 --- !u!1001 &1894010328
 PrefabInstance:
   m_ObjectHideFlags: 0
