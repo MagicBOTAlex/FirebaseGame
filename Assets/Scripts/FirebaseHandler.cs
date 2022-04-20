@@ -42,11 +42,11 @@ public static class FirebaseHandler
     public static void AddScore(string name, float score)
     {
         var data = GetData();
-        var dumbList = data.Scores.ToList();
+        var dumbList = (data is not null) ? data.Scores.ToList() : new List<PlayerScore>();
         dumbList.Add(new PlayerScore() { Name = name, Score = score, TimeSubmitted = DateTimeOffset.Now.ToUnixTimeSeconds()});
-        data.Scores = dumbList.ToArray();
+        var output = new DatabaseStructure() { Scores = dumbList.ToArray() };
 
-        string json = JsonConvert.SerializeObject(data);
+        string json = JsonConvert.SerializeObject(output);
         SendData(json);
 
         //firebase.Child("database").PatchAsync(JsonConvert.SerializeObject(data)).Wait();
