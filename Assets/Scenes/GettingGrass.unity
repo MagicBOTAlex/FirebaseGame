@@ -2746,7 +2746,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809677064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0045118, y: 0.11796093, z: -0.2566787}
+  m_LocalPosition: {x: 1.0045118, y: -3.1, z: -0.25668}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2767,8 +2767,8 @@ PositionConstraint:
   m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_TranslationAtRest: {x: 1.0045118, y: 0.11796093, z: -0.2566787}
-  m_TranslationOffset: {x: 1.0045118, y: 0.11796093, z: -0.2566787}
+  m_TranslationAtRest: {x: 1.0045118, y: -3.1, z: -0.25668}
+  m_TranslationOffset: {x: 1.0045118, y: -3.1, z: -0.25668}
   m_AffectTranslationX: 0
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -3080,7 +3080,6 @@ GameObject:
   - component: {fileID: 910972013}
   - component: {fileID: 910972012}
   - component: {fileID: 910972015}
-  - component: {fileID: 910972016}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -3102,7 +3101,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1886543828}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 39.6, y: -4.2, z: 0}
 --- !u!81 &910972012
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3171,26 +3170,6 @@ LookAtConstraint:
   m_UseUpObject: 0
   m_Active: 1
   m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 60072686}
-    weight: 1
---- !u!1818360608 &910972016
-PositionConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910972010}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Weight: 0.75
-  m_TranslationAtRest: {x: 0, y: 6.68, z: -7.28}
-  m_TranslationOffset: {x: 0, y: 6.68, z: -7.28}
-  m_AffectTranslationX: 1
-  m_AffectTranslationY: 0
-  m_AffectTranslationZ: 0
-  m_Active: 1
-  m_IsLocked: 0
   m_Sources:
   - sourceTransform: {fileID: 60072686}
     weight: 1
@@ -5324,7 +5303,7 @@ PositionConstraint:
   m_Weight: 1
   m_TranslationAtRest: {x: 0, y: 0, z: 0}
   m_TranslationOffset: {x: 0, y: 0, z: 0}
-  m_AffectTranslationX: 0
+  m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
   m_Active: 1
