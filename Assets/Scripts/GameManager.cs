@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public static bool KeepOldScore = false;
+    public static float ScoreToKeep;
 
     [Header("Refrences")]
     public GameObject Player;
@@ -39,6 +41,14 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
 
+        if (KeepOldScore)
+        {
+            KeepOldScore = false;
+            Score = ScoreToKeep;
+            IsDead = true;
+            Destroy(Player);
+        }
+
         spawnedHolder = new GameObject("SpawnedHolder");
 
         for (int i = 0; i < PreSpawnedPlatforms; i++)
@@ -53,6 +63,11 @@ public class GameManager : MonoBehaviour
         //Debug.Log(new Marc());
         //Debug.Log(new Marc(true));
         //Debug.Log(new Marc(true, 40));
+    }
+
+    private void OnDisable()
+    {
+        ScoreToKeep = Score;
     }
 
     bool hasChanged = false;
